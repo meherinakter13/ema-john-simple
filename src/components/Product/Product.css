@@ -1,0 +1,22 @@
+.product{
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+}
+.product img{
+    margin-right: 15px;
+}
+.product-name {
+    color: blueviolet;
+    font-weight: 400;
+}
+.button-click{
+    background-color: rgb(247, 200, 81);
+    border:1px solid rgb(56, 55, 55);
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
