@@ -32,7 +32,7 @@ const Review = () => {
     useEffect(()=>{
         const savedCart = getDatabaseCart();
         const productKeys= Object.keys(savedCart);
-        fetch('http://localhost:4200/productsByKeys',{
+        fetch('https://mighty-headland-56767.herokuapp.com/productsByKeys',{
             method: "POST",
             headers:{
                 'Content-Type' : 'application/json'

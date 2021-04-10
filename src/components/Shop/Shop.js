@@ -10,17 +10,19 @@ const Shop = () => {
     // const first10 = fakeData.slice(0,10);
    const [products, setProducts]= useState([]);
    const [cart,setCart] = useState([]);
+   const[ search, setSearch] = useState('');
 
    useEffect(()=>{
-       fetch('http://localhost:4200/products')
+       fetch('https://mighty-headland-56767.herokuapp.com/products?search='+search)
+    // fetch('http://localhost:4200/products?search='+search)
        .then(res => res.json())
        .then(data => setProducts(data))
-   },[])
+   },[search])
 
    useEffect(()=>{
         const savedCart =getDatabaseCart();
         const productKeys= Object.keys(savedCart);
-        fetch('http://localhost:4200/productsByKeys',{
+        fetch('https://mighty-headland-56767.herokuapp.com/productsByKeys',{
             method: "POST",
             headers:{
                 'Content-Type' : 'application/json'
@@ -57,9 +59,15 @@ const Shop = () => {
        setCart(newCart);
        addToDatabaseCart(product.key, count);
    }
+   const handleSearch = event => {
+        setSearch(event.target.value);
+   }
     return (
         <div className="same-container">
+            
             <div className="product-container">
+              <input type="text" onBlur={handleSearch} placeholder="search product"/>
+              
                 {
                     products.map.length === 0 && <p>loading..........</p>
                 }
